@@ -11,33 +11,14 @@
 
 ## Output of main.dart
 
-# Dart OOP Assignment: Kigali Bus Card
-
-**Name:** Gemimah Bizumuremyi
-**Student ID:** 25967
-
-## My numbers
-- D = 67, L = 7
-- Starting balance = 1670 RWF
-- Bus fare = 267 RWF
-- Student discount = 17%
-
-## Output of main.dart
-
-```text
 Error: name too short
 Owner: Gemimah | Balance: 1670 RWF
---- TODO 5 ---
 Owner: Gemimah Bizumuremyi | Balance: 1670 RWF
---- TODO 6 ---
 Error: top-up must be 500 to 50000 RWF
 Topped up 2000 RWF
---- TODO 7 ---
 Paid 267 RWF
 Paid 267 RWF
 Owner: Gemimah Bizumuremyi | Balance: 3136 RWF
---- TODO 8 ---
---- TODO 9 ---
 Student discount: 45 RWF
 Paid 222 RWF
 Owner: Gemimah Bizumuremyi | Balance: 1448 RWF
