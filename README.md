@@ -36,36 +36,16 @@ It is for the safety of the system. If we allowed a setter, anyone could cheat a
 
 ## Part 4: Bug table
 
-## Part 4: Bug table
+| Bug | The line | Why it is wrong | Your fix |
+|---|---|---|---|
+| 1 | `String _brand;` and `int _battery;` | Dart requires fields to have a starting value or be nullable. | `String _brand = '';` and `int _battery = 0;` |
+| 2 | `SmartPhone(String brand, int battery, String system)` | The child class is not calling the parent's constructor. | Added `: super(brand, battery)` |
+| 3 | `@override void restart()` | The parent `Phone` has no `restart` method, so `@override` fails. | Deleted the `restart` method. |
+| 4 | `p.battery()` | `battery` is a getter, not a function, so it doesn't use `()`. | Changed to `print(p.battery);` |
+| 5 | `p.battery = 100;` | It needs a setter to work, but we were told not to delete the line. | Added a `set battery` method. |
+| Not a bug | `p.battery = 100;` | It is fine because we added the setter, so it prints `100`. | (none) |
 
-**Bug 1:**
-- The line: `String _brand;` and `int _battery;`
-- Why it is wrong: In Dart, class fields must have a starting value (like we did in BusCard) or be marked as nullable. They cannot just be empty.
-- My fix: `String _brand = '';` and `int _battery = 0;`
 
-**Bug 2:**
-- The line: `SmartPhone(String brand, int battery, String system)`
-- Why it is wrong: The child class SmartPhone is not calling the parent Phone constructor.
-- My fix: Added `: super(brand, battery)` to the constructor.
-
-**Bug 3:**
-- The line: `@override void restart()`
-- Why it is wrong: `@override` only works if the parent has that method. The parent Phone has no restart method.
-- My fix: Deleted the `restart` method entirely.
-
-**Bug 4:**
-- The line: `p.battery()`
-- Why it is wrong: `battery` is a getter (a property), not a method, so it does not need parentheses.
-- My fix: Changed to `print(p.battery);`
-
-**Bug 5:**
-- The line: `p.battery = 100;`
-- Why it is wrong: Even though it looks like a bug (because there was no setter in the original code), the instructions tell us NOT to delete it. We must make it work.
-- My fix: Added a setter for battery that only accepts values from 0 to 100.
-
-**Not a bug:**
-- The line: `p.battery = 100;`
-- Why is this line fine? It is fine because we added the setter, so the program runs and prints exactly `100`.
 ## Part 5
 My prediction:
 It will print 1, then 5. The first Bag stays at 1 because -5 is rejected by the setter. The BigBag adds 2 items per call, so two calls = 4, plus 1 = 5.
