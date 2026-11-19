@@ -29,25 +29,26 @@ Student discount: 45 RWF
 Paid 222 RWF
 Owner: Gemimah Bizumuremyi | Balance: 1448 RWF
 Student card: 17% off
-
-## Part 1: Why no setter for balance?
-It is for the safety of the system. If we allowed a setter, anyone could cheat and change their balance to a million RWF. By making it read-only, the balance can only change through the proper methods like topUp() and pay(), which have rules
-
-## Part 2: What does ~/ do?
+Part 1: Why no setter for balance?
+It is for the safety of the system. If we allowed a setter, anyone could cheat and change their balance to a million RWF. By making it read-only, the balance can only change through the proper methods like topUp() and pay(), which have rules.
+Part 2: What does ~/ do?
 ~/ is integer division. It divides the numbers and discards the decimal part. For example, 237 * 17 / 100 gives 40.29 (a double), but 237 * 17 ~/ 100 gives 40 (an int). It ensures the discount is a whole number without decimals.
-
-## Part 4: Bug table
-
-| Bug | The line | Why it is wrong | Your fix |
-|---|---|---|---|
-| 1 | `String _brand;` | Fields must have starting values. | Added `= '';` and `= 0;` |
-| 2 | `SmartPhone(...)` | Child class isn't calling the parent constructor. | Added `: super(brand, battery)` |
-| 3 | `@override void restart()` | Parent has no `restart` method. | Deleted the method. |
-| 4 | `p.battery()` | `battery` is a getter, not a method. | Changed to `print(p.battery);` |
-| 5 | `p.battery = 100;` | Needs a setter to work. | Added `set battery` method. |
-| Not a bug | `p.battery = 100;` | It works perfectly now because of the setter. | (none) |
-
-## Part 5
+Part 4: Bug table
+Bug	The line	Why it is wrong	Your fix
+1	String _brand;	Fields must have starting values.	Added = ''; and = 0;
+2	SmartPhone(...)	Child class isn't calling the parent constructor.	Added : super(brand, battery)
+3	@override void restart()	Parent has no restart method.	Deleted the method.
+4	p.battery()	battery is a getter, not a method.	Changed to print(p.battery);
+5	p.battery = 100;	Needs a setter to work.	Added set battery method.
+Not a bug	p.battery = 100;	It works perfectly now because of the setter.	(none)
+Part 5
 My prediction:
+It will print 1, then 5. The first Bag stays at 1 because -5 is rejected by the setter (it only accepts values >= 0). The BigBag adds 2 items per call, so two calls = 4 items. Then we add 1, making it 5.
+
 Real output:
+
+text
+1
+5
 Was I right?
+Yes, my prediction was 100% correct.
