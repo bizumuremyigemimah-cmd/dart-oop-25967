@@ -10,6 +10,8 @@
 - Student discount = 17%
 
 ## Output of main.dart
+
+```text
 Error: name too short
 Owner: Gemimah | Balance: 1670 RWF
 --- TODO 5 ---
