@@ -38,14 +38,34 @@ It is for the safety of the system. If we allowed a setter, anyone could cheat a
 
 ## Part 4: Bug table
 
-| Bug | The line | Why it is wrong | Your fix |
-|---|---|---|---|
-| 1 | `String _brand;` | Fields must have starting values. | Added `= '';` and `= 0;` |
-| 2 | `SmartPhone(...)` | Child class isn't calling the parent constructor. | Added `: super(brand, battery)` |
-| 3 | `@override void restart()` | Parent has no `restart` method. | Deleted the method. |
-| 4 | `p.battery()` | `battery` is a getter, not a method. | Changed to `print(p.battery);` |
-| 5 | `p.battery = 100;` | Needs a setter to work. | Added `set battery` method. |
-| Not a bug | `p.battery = 100;` | It works perfectly now because of the setter. | (none) |
+**Bug 1**
+* **The line:** `String _brand;` and `int _battery;`
+* **Why it is wrong:** Dart requires fields to have a starting value or be nullable.
+* **My fix:** Initialized them with `String _brand = '';` and `int _battery = 0;`
+
+**Bug 2**
+* **The line:** `SmartPhone(...)` constructor
+* **Why it is wrong:** The child class is not calling the parent's constructor.
+* **My fix:** Added `: super(brand, battery)`
+
+**Bug 3**
+* **The line:** `@override void restart()`
+* **Why it is wrong:** The parent `Phone` has no `restart` method, so overriding it fails.
+* **My fix:** Deleted the `restart` method entirely.
+
+**Bug 4**
+* **The line:** `p.battery()`
+* **Why it is wrong:** `battery` is a getter, not a function, so it does not use parentheses.
+* **My fix:** Changed to `print(p.battery);`
+
+**Bug 5**
+* **The line:** `p.battery = 100;`
+* **Why it is wrong:** It requires a setter to work, but we were told not to delete it.
+* **My fix:** Added a `set battery` method.
+
+**Not a bug**
+* **The line:** `p.battery = 100;`
+* **Why is it fine?** It works perfectly because of the setter we added, so it prints `100`.
 
 ## Part 5
 My prediction:
