@@ -38,7 +38,7 @@ It is for the safety of the system. If we allowed a setter, anyone could cheat a
 
 ## Part 4: Bug table
 
-| Bug | The line | Why it is wrong | Your fix |
+| Bug | The line | Why it is wrong (your words) | Your fix |
 |---|---|---|---|
 | 1 | `String _brand;` and `int _battery;` | Dart requires fields to have a starting value or be nullable. | `String _brand = '';` and `int _battery = 0;` |
 | 2 | `SmartPhone(...)` constructor | The child class is not calling the parent's constructor. | Added `: super(brand, battery)` |
@@ -53,9 +53,6 @@ It is for the safety of the system. If we allowed a setter, anyone could cheat a
 It will print `1`, then `5`. The first `Bag` stays at 1 because `-5` is rejected by the setter (it only accepts values >= 0). The `BigBag` adds 2 items per call, so two calls = 4 items. Then we add 1, making it 5.
 
 **Real output:**
-
 ```text
 1
 5
-Was I right?
-Yes, my prediction was 100% correct.
