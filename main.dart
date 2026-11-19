@@ -66,3 +66,31 @@ class StudentCard extends BusCard {
     super.pay(fare - off);
   }
 }
+void main() {
+  // My numbers: D = 67, L = 7
+  // Starting balance = 1670 RWF, Bus fare = 267 RWF, Discount = 17%
+
+  BusCard card = BusCard('Gemimah', 1670);
+  card.owner = 'Al';
+  card.showInfo();
+
+  print('--- TODO 5 ---');
+  card.owner = 'Gemimah Bizumuremyi';
+  card.showInfo();
+
+  print('--- TODO 6 ---');
+  card.topUp(100);
+  card.topUp(2000);
+
+  print('--- TODO 7 ---');
+  card.pay(267);
+  card.pay(267);
+  card.showInfo();
+
+  print('--- TODO 8 ---');
+  StudentCard studentCard = StudentCard('Gemimah Bizumuremyi', 1670, 17);
+
+  print('--- TODO 9 ---');
+  studentCard.pay(267);
+  studentCard.showInfo();
+}
