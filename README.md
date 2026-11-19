@@ -40,12 +40,13 @@ It is for the safety of the system. If we allowed a setter, anyone could cheat a
 
 | Bug | The line | Why it is wrong | Your fix |
 |---|---|---|---|
-| 1 | `String _brand;` | Fields must have starting values. | Added `= '';` and `= 0;` |
-| 2 | `SmartPhone(...)` | Child class isn't calling the parent constructor. | Added `: super(brand, battery)` |
-| 3 | `@override void restart()` | Parent has no `restart` method. | Deleted the method. |
-| 4 | `p.battery()` | `battery` is a getter, not a method. | Changed to `print(p.battery);` |
-| 5 | `p.battery = 100;` | Needs a setter to work. | Added `set battery` method. |
-| Not a bug | `p.battery = 100;` | It works perfectly now because of the setter. | (none) |
+| 1 | `String _brand;` and `int _battery;` | Dart requires fields to have a starting value or be nullable. | `String _brand = '';` and `int _battery = 0;` |
+| 2 | `SmartPhone(String brand, int battery, String system)` | The child class is not calling the parent's constructor. | Added `: super(brand, battery)` |
+| 3 | `@override void restart()` | The parent `Phone` has no `restart` method, so `@override` fails. | Deleted the `restart` method. |
+| 4 | `p.battery()` | `battery` is a getter, not a function, so it doesn't use `()`. | Changed to `print(p.battery);` |
+| 5 | `p.battery = 100;` | It needs a setter to work, but we were told not to delete the line. | Added a `set battery` method. |
+| Not a bug | `p.battery = 100;` | It is fine because we added the setter, so it prints `100`. | (none) |
+
 ## Part 5
 My prediction:
 It will print 1, then 5. The first Bag stays at 1 because -5 is rejected by the setter. The BigBag adds 2 items per call, so two calls = 4, plus 1 = 5.
