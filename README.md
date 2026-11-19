@@ -10,7 +10,21 @@
 - Student discount = 17%
 
 ## Output of main.dart
-''''
+
+# Dart OOP Assignment: Kigali Bus Card
+
+**Name:** Gemimah Bizumuremyi
+**Student ID:** 25967
+
+## My numbers
+- D = 67, L = 7
+- Starting balance = 1670 RWF
+- Bus fare = 267 RWF
+- Student discount = 17%
+
+## Output of main.dart
+
+```text
 Error: name too short
 Owner: Gemimah | Balance: 1670 RWF
 --- TODO 5 ---
@@ -52,5 +66,5 @@ It will print 1, then 5. The first Bag stays at 1 because -5 is rejected by the 
 Real output:
 1
 5
-Was I right? 
+Was I right
 Yes, my prediction was correct.
